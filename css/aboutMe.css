@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* Create two equal columns that floats next to each other */
+
+.column1 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 400px;
+    /* Should be removed. Only for demonstration */
+}
+
+.column2 {
+    float: right;
+    width: 70%;
+    padding: 20px;
+    height: 400px;
+    /* Should be removed. Only for demonstration */
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.btn {
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.resume {
+    background-color: rgb(10, 43, 43);
+}
+
+.contact {
+    background-color: cadetblue
+}
