@@ -84,6 +84,8 @@ window.onload = function() {
         hourlyrate.appendChild(hourlyinput);
         hourlylabel.innerText = "Hourly Rate";
         hourlyinput.type = "text";
+        hourlyinput.setAttribute("required", "");
+        hourlyinput.required = true;
 
         question.checked = false;
         comment.checked = false;

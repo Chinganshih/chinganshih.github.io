@@ -327,3 +327,7 @@ fieldset {
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
+
+::placeholder {
+    color: rgb(167, 151, 151);
+}

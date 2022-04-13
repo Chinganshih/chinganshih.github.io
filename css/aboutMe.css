@@ -89,6 +89,7 @@
     float: left;
     width: 20%;
     padding: 10px;
+    background-color: rgb(193, 27, 27);
     /* Should be removed. Only for demonstration */
 }
 
@@ -120,9 +121,5 @@
     zoom: 1;
     vertical-align: top;
     font-size: 12px;
-    height: 1000px;
-}
-
-.error {
-    color: red;
+    height: 800px;
 }
