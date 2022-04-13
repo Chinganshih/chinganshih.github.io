@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="./css/aboutMe.css" type="text/css" />
     <link rel="stylesheet" href="./css/profile.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/categories.js"></script>
+    <script src="./js/products.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -28,41 +32,119 @@
                 <a href="chingan,shih_resume.docx.pdf" download="chingan,shih_resume.docx.pdf">
                     <button class="btn resume"><i class="fa fa-download"></i> Resume</button>
                 </a>
-                <button class="btn contact"><i class="fa fa-user" onclick="window.location.href='/contactMe.html'"></i> Contact Me</button>
+                <button class="btn contact"><i class="fa fa-user"></i> Contact Me</button>
             </div>
         </div>
-
-
     </header>
+    <hr>
+    <div class="content" style="visibility:hidden">
+        <!-- About Me and Academic Honesty Section  -->
+        <div class="aboutMe_left" style="background-color:#aaa;">
+            <h3>About Me and Academic Honesty</h3>
+            <p>I declare that my assessment is wholly my own work in accordance with Seneca Academic Policy. No part of this assessment has been copied manually or electronically from any other source (including web sites) except for the information supplied
+                by the WEB222 instructors and / or made available in this assessment for my use. I also declare that no part of this assignment has been distributed to other students.</p>
+            <h6 style="text-align:right"> <b>Date: </b> 2022-04-15</h6>
+        </div>
+        <div class="aboutMe_right" style="background-color:#bbb;">
+            <h3>Basic Information</h3>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Name: </b> Ching-An, Shih</li>
+                <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Course: </b> WEB222</li>
+                <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Section: </b> NII</li>
+                <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Professor: </b> Mark Meritt</li>
+            </ul>
+        </div>
 
-    <!-- 
-    <nav id="menu">
-       
-    </nav>
+        <!-- Education Section  -->
+        <hr>
+        <div class="edu_left" style="background-color:#aaa;">
+            <h6 style="text-align: center;">Sep 2020 - Jan 2023 (expected)</h6>
+            <h3 style="color: rgb(255, 255, 255); text-align: center;">Bachelor's Degree</h3>
+        </div>
+        <div class=" edu_right " style="background-color:#bbb; ">
+            <p style="color: rgb(41, 52, 90); "> <b>SENECA COLLEGE</b> </p>
+            <h6>Bachelor's Degree</h6>
+            <p> <b>Major in Computer Programming (CPP)</b> </p>
 
-    <hr /> -->
+        </div>
 
-    <!-- <main>
-        <h2 id="selected-category">
-        </h2>
+        <!-- Education Section  -->
+        <hr>
+        <div class="edu_left " style="background-color:#aaa; ">
+            <h6 style="text-align: center; ">Sep 2015 - Jun 2019</h6>
+            <h3 style="color: rgb(255, 255, 255); text-align: center; ">Bachelor's Degree</h3>
+        </div>
+        <div class="edu_right " style="background-color:#bbb; ">
+            <p style="color: rgb(41, 52, 90); "> <b>National Taipei University Of Technology</b> </p>
+            <h6>Bachelor's Degree</h6>
+            <p> <b>Major in Information Finance Management (IFM)</b> </p>
+        </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th id="table_title">Name</th>
-                    <th id="table_title">Description</th>
-                    <th id="table_title">Price</th>
-                </tr>
-            </thead>
-            <tbody id="category-products">
-            </tbody>
-        </table>
-    </main> -->
+        <!-- Contact Me Section  -->
+        <hr>
+        <div id="container">
 
-    <script src="./js/categories.js"></script>
-    <script src="./js/products.js"></script>
+            <div class="contact_top" style="background-color:#982c61; ">
+                <h3 style="color: rgb(255, 255, 255); text-align: center; ">Contact Me Form</h3>
+            </div>
 
-    <script src="./js/app.js"></script>
+            <div class="contact_left" style="background-color:#aaa; ">
+
+            </div>
+            <div class="contact_middle" style="background-color:#bbb; ">
+                <form>
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname">
+                    <label for="lname">Last name:</label>
+                    <input type="text" id="lname" name="lname">
+                    <!-- Email -->
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                    <!-- Address -->
+                    <label for="Address">Address:</label>
+                    <input type="text" id="address" name="address">
+                    <!-- City -->
+                    <label for="city">Choose your city from the list:</label>
+                    <input list="browsers" name="city" id="city">
+                    <datalist id="browsers">
+                      <option value="Toronto">
+                      <option value="Ottawa">
+                      <option value="Quebec">
+                      <option value="Montreal">
+                      <option value="Vancouver">
+                  </datalist>
+                    <!-- Postal Code -->
+                    <label for="postalcode">Postal Code:</label>
+                    <input type="text" id="postalcode" name="postalcode">
+                    <button id="btn_verify" type="button">verify</button>
+                    <br>
+                    <!-- Question Radio -->
+                    <label for="question">What is this about?</label>
+                    <input type="radio" id="question" name="Question" value="Question">
+                    <label for="Question">Question</label>
+                    <input type="radio" id="comment" name="comment" value="comment">
+                    <label for="Commnet">Comment</label>
+                    <input type="radio" id="hiring" name="hiring" value="hiring">
+                    <label for="Hiring">Hiring</label>
+                    <div id="hourlyrate"></div>
+                    <!-- Other -->
+                    <label for="other">Other (write down everything you would like to tell me):</label>
+                    <textarea name="other " id="other " cols="10 " rows="10 " placeholder="Please tell me what you would like to know about me! "> </textarea>
+                </form>
+
+            </div>
+            <div class="contact_right " style="background-color:#aaa; ">
+
+
+            </div>
+        </div>
+        <p>Ching-An &#169;</p>
+
+    </div>
+
+
+
 </body>
+
 
 </html>

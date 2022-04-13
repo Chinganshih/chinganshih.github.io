@@ -102,45 +102,91 @@ function createtableIndex(e, index) {
     }
 }
 
+function verify() {
+    var postalcode = document.querySelector("#postalcode");
+    var btn_verify = document.querySelector("#btn_verify");
+    console.log(btn_verify);
+    btn_verify.addEventListener("click", function(e) {
+        let postal = postalcode.value;
+        var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+        var pr = regex.test(postal);
+
+        if (pr === true) {
+            //all good      
+        } else {
+            // not so much
+            document.getElementById("error").innerHTML = "Invalid Postal Code!";
+        }
+    });
+
+}
+
 // 1.	Create an event handler to run when the page is loaded.
 window.onload = function() {
 
-    //1. Create all of the buttons for your store’s Categories
-    createCatBtn();
-    //2. display default Category and Product
-    defaultCategory();
+    var contact = document.querySelector(".contact");
+    var postalcode = document.querySelector("#postalcode");
+    var btn_verify = document.querySelector("#btn_verify");
+    var hiring = document.querySelector('#hiring');
+    var hourlyrate = document.querySelector('#hourlyrate');
+    var question = document.querySelector("#question");
+    var comment = document.querySelector("#comment");
 
-    //3. addEventListener for all buttons
-    var topbtn = document.querySelectorAll("#topbtn");
-    topbtn.forEach(function(e) {
-        e.addEventListener("click", function() {
-            let index = 1;
+    contact.addEventListener("click", function() {
+        document.querySelector(".content").style.visibility = "visible";
+    })
 
-            //3.1 Update the text of the Selected Category Title above your table with the category’s name
-            document.querySelector("#selected-category").innerText = e.innerText;
-            //3.2 Clear the current <tr>…</tr> rows from the <tbody>…</tbody>. HINT: innerHTML = “”
-            document.querySelector("#category-products").innerHTML = "";
-            //3.3 Filter your products Array (i.e., use Array.prototype.filter()) to get:
-            var selectCat = categories.filter((element) => element.name === e.innerText);
-            //3.4 Loop (use Array.prototype.forEach()) over your filtered product list and add them to the table’s body:
-            products.forEach((e) => {
-                if (e.categories[0] === selectCat[0].id && !isDiscontinued(e.discontinued)) {
-                    createtableIndex(e, index);
-                    index++;
-                }
-            });
-        });
+    btn_verify.addEventListener("click", function(e) {
+        let postal = postalcode.value;
+        var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+        var pr = regex.test(postal);
+
+        if (pr === true) {
+            //all good      
+        } else {
+            // not so much
+            document.querySelector("#postalcode").value = "Invalid Postal Code!";
+            postalcode.addEventListener("click", function(e) {
+                document.querySelector("#postalcode").value = "";
+            })
+        }
     });
 
-    //click resume to download resume PDF
+    question.addEventListener("click", function(e) {
+        hiring.checked = false;
+        comment.checked = false;
 
-    var resume = document.querySelector("#btn resume");
-
-    resume.addEventListener("click", function() {
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'chingan,shih_resume.docx.pdf');
-        resume.appendChild(link);
-        link.click();
     })
+
+    comment.addEventListener("click", function(e) {
+        question.checked = false;
+        hiring.checked = false;
+
+    })
+
+    hiring.addEventListener("click", function(e) {
+        var hourlylabel = document.createElement("label");
+        var hourlyinput = document.createElement("input");
+
+        hourlyrate.appendChild(hourlylabel);
+        hourlyrate.appendChild(hourlyinput);
+        hourlylabel.innerText = "Hourly Rate";
+        hourlyinput.type = "text";
+
+        question.checked = false;
+        comment.checked = false;
+
+        question.addEventListener("click", function(e) {
+            hourlyrate.removeChild(hourlylabel);
+            hourlyrate.removeChild(hourlyinput);
+
+        })
+
+        comment.addEventListener("click", function(e) {
+            hourlyrate.removeChild(hourlylabel);
+            hourlyrate.removeChild(hourlyinput);
+
+        })
+    })
+
 };
