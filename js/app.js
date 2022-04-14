@@ -16,7 +16,6 @@
 function validateInput(e) {
     let isInvalid = false;
     const value = e.target.value.trim();
-
     switch (e.target.name) {
         case "fname":
             isInvalid = value === "";
@@ -43,10 +42,13 @@ function validateInput(e) {
         case "postalcode":
             var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
             var pr = regex.test(e.target.value);
-            console.log(pr);
             isInvalid = value === "" || !pr;
-
             break;
+
+        case "question":
+            isInvalid = value === "";
+            break;
+
         case "question":
             isInvalid = value === "";
             break;
@@ -98,10 +100,12 @@ window.onload = function() {
 
         hourlyrate.appendChild(hourlylabel);
         hourlyrate.appendChild(hourlyinput);
-        hourlylabel.innerText = "Hourly Rate";
+        hourlylabel.innerText = "Hourly Rate (Ex. 14.5)";
+        hourlyinput.id = "hourlyinput";
         hourlyinput.type = "text";
         hourlyinput.setAttribute("required", "");
         hourlyinput.required = true;
+
 
         question.checked = false;
         comment.checked = false;
@@ -120,9 +124,15 @@ window.onload = function() {
     })
 
     submit.addEventListener("click", function(e) {
+        var hourlyinput = document.querySelector('#hourlyinput');
         var url = "https://httpbin.org/post?key=formdata";
         var xhr = new XMLHttpRequest();
         e.preventDefault();
+
+        if (hourlyinput) {
+            const isInvalid = hourlyinput.value === "" || !isFinite(hourlyinput.value);
+            hourlyinput.classList.toggle("invalid", isInvalid);
+        }
         const isInvalid = validateInput({ target: fname }) | validateInput({ target: lname }) | validateInput({ target: email }) | validateInput({ target: address }) | validateInput({ target: city }) |
             validateInput({ target: postalcode }) | validateInput({ target: question }) | validateInput({ target: other });
 

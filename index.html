@@ -94,18 +94,18 @@
             </div>
             <div class="contact_middle" style="background-color:#bbb; ">
                 <form id="contactform">
-                    <label for="fname">First name:</label>
+                    <label for="fname">First name (required):</label>
                     <input type="text" id="fname" name="fname" required>
-                    <label for="lname">Last name:</label>
+                    <label for="lname">Last name (required):</label>
                     <input type="text" id="lname" name="lname" required>
                     <!-- Email -->
-                    <label for="email">Email:</label>
+                    <label for="email">Email (required):</label>
                     <input type="email" id="email" name="email" placeholder="123@example.com" pattern=".+@globex\.com" required>
                     <!-- Address -->
-                    <label for="Address">Address:</label>
+                    <label for="Address">Address (required):</label>
                     <input type="text" id="address" name="address" required>
                     <!-- City -->
-                    <label for="city">Choose your city from the list:</label>
+                    <label for="city">Choose your city from the list (required):</label>
                     <input list="browsers" name="city" id="city" required>
                     <datalist id="browsers">
                       <option value="Toronto">
@@ -115,11 +115,11 @@
                       <option value="Vancouver">
                   </datalist>
                     <!-- Postal Code -->
-                    <label for="postalcode">Postal Code:</label>
+                    <label for="postalcode">Postal Code (required):</label>
                     <input type="text" id="postalcode" name="postalcode" placeholder="A4H 3M1" required>
                     <br>
                     <!-- Question Radio -->
-                    <label for="question">What is this about?</label>
+                    <label for="question">What is this about? (required)</label>
                     <!-- Question Radio -->
                     <label for="Question">
                         <input type="radio" id="question" name="Question" value="Question" checked>
@@ -138,7 +138,7 @@
                     <!-- Hourly Rate input -->
                     <div id="hourlyrate"></div>
                     <!-- Other -->
-                    <label for="other">Other (write down everything you would like to tell me):</label>
+                    <label for="other">Other (write down everything you would like to tell me) (required):</label>
                     <textarea name="other" id="other" cols="10 " rows="10 " placeholder="Please tell me what you would like to know about me! " required></textarea>
                     <button id="submit" type="button">submit</button>
                 </form>
