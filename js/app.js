@@ -13,56 +13,72 @@
  *      Date:       2022-04-15
  */
 
+function validateInput(e) {
+    let isInvalid = false;
+    const value = e.target.value.trim();
 
-function verify() {
-    var postalcode = document.querySelector("#postalcode");
-    var btn_verify = document.querySelector("#btn_verify");
-    console.log(btn_verify);
-    btn_verify.addEventListener("click", function(e) {
-        let postal = postalcode.value;
-        var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-        var pr = regex.test(postal);
+    switch (e.target.name) {
+        case "fname":
+            isInvalid = value === "";
+            break;
 
-        if (pr === true) {
-            //all good      
-        } else {
-            // not so much
-            document.getElementById("error").innerHTML = "Invalid Postal Code!";
-        }
-    });
+        case "lname":
+            isInvalid = value === "";
+            break;
 
+        case "email":
+            var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            var pr = regex.test(e.target.value);
+            isInvalid = value === "" || !pr;
+            break;
+
+        case "address":
+            isInvalid = value === "";
+            break;
+
+        case "city":
+            isInvalid = value === "";
+            break;
+
+        case "postalcode":
+            var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+            var pr = regex.test(e.target.value);
+            console.log(pr);
+            isInvalid = value === "" || !pr;
+
+            break;
+        case "question":
+            isInvalid = value === "";
+            break;
+
+        case "other":
+            isInvalid = value === "";
+            break;
+    }
+    e.target.classList.toggle("invalid", isInvalid);
+    return isInvalid;
 }
 
 // 1.	Create an event handler to run when the page is loaded.
 window.onload = function() {
-
+    var formDate = {};
     var contact = document.querySelector(".contact");
+    var fname = document.querySelector("#fname");
+    var lname = document.querySelector("#lname");
+    var email = document.querySelector("#email");
+    var address = document.querySelector("#address");
+    var email = document.querySelector("#email");
     var postalcode = document.querySelector("#postalcode");
-    var btn_verify = document.querySelector("#btn_verify");
     var hiring = document.querySelector('#hiring');
     var hourlyrate = document.querySelector('#hourlyrate');
     var question = document.querySelector("#question");
+    var other = document.querySelector("#other");
     var comment = document.querySelector("#comment");
+    var submit = document.querySelector("#submit");
 
     contact.addEventListener("click", function() {
         document.querySelector(".content").style.visibility = "visible";
     })
-
-    btn_verify.addEventListener("click", function(e) {
-        let postal = postalcode.value;
-        var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-        var pr = regex.test(postal);
-
-        if (pr === true) {
-            //all good      
-        } else {
-            // not so much
-            document.querySelector("#postalcode").value = "Invalid Postal Code!";
-            postalcode.addEventListener("click", function(e) {
-                document.querySelector("#postalcode").value = "";
-            })
-        }
-    });
 
     question.addEventListener("click", function(e) {
         hiring.checked = false;
@@ -103,4 +119,32 @@ window.onload = function() {
         })
     })
 
+    submit.addEventListener("click", function(e) {
+        var url = "https://httpbin.org/post?key=formdata";
+        var xhr = new XMLHttpRequest();
+        e.preventDefault();
+        const isInvalid = validateInput({ target: fname }) | validateInput({ target: lname }) | validateInput({ target: email }) | validateInput({ target: address }) | validateInput({ target: city }) |
+            validateInput({ target: postalcode }) | validateInput({ target: question }) | validateInput({ target: other });
+
+        if (!isInvalid) {
+            formDate.fname = fname.value;
+            formDate.lname = lname.value;
+            formDate.email = email.value;
+            formDate.address = address.value;
+            formDate.city = city.value;
+            formDate.postalcode = postalcode.value;
+            formDate.question = question.value;
+            formDate.other = other.value;
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+            xhr.open("POST", url);
+            xhr.send(JSON.stringify(formDate));
+            console.log(formDate);
+        }
+
+    })
 };
