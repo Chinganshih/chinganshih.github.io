@@ -25,6 +25,9 @@ function validateInput(e) {
             isInvalid = value === "";
             break;
 
+        case "phone":
+            isInvalid = value === "";
+            break;
         case "email":
             var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             var pr = regex.test(e.target.value);
@@ -67,6 +70,7 @@ window.onload = function() {
     var contact = document.querySelector(".contact");
     var fname = document.querySelector("#fname");
     var lname = document.querySelector("#lname");
+    var phone = document.querySelector("#phone");
     var email = document.querySelector("#email");
     var address = document.querySelector("#address");
     var email = document.querySelector("#email");
@@ -80,6 +84,7 @@ window.onload = function() {
 
     contact.addEventListener("click", function() {
         document.querySelector(".content").style.visibility = "visible";
+        document.querySelector(".content").removeAttribute("hidden");
     })
 
     question.addEventListener("click", function(e) {
@@ -130,17 +135,19 @@ window.onload = function() {
         var xhr = new XMLHttpRequest();
         e.preventDefault();
 
+        // check validation
         if (hourlyinput) {
             const isInvalid = hourlyinput.value === "" || !isFinite(hourlyinput.value);
             hourlyinput.classList.toggle("invalid", isInvalid);
             (isInvalid) ? hourrateEpy = 1: 0;
         }
-        const isInvalid = validateInput({ target: fname }) | validateInput({ target: lname }) | validateInput({ target: email }) | validateInput({ target: address }) | validateInput({ target: city }) |
+        const isInvalid = validateInput({ target: fname }) | validateInput({ target: lname }) | validateInput({ target: phone }) | validateInput({ target: email }) | validateInput({ target: address }) | validateInput({ target: city }) |
             validateInput({ target: postalcode }) | validateInput({ target: question }) | validateInput({ target: other });
 
         if (!isInvalid && !hourrateEpy) {
             formData.fname = fname.value;
             formData.lname = lname.value;
+            formData.phone = phone.value;
             formData.email = email.value;
             formData.address = address.value;
             formData.city = city.value;
@@ -148,7 +155,6 @@ window.onload = function() {
             formData.other = other.value;
 
             if (question.checked) {
-                console.log(question.value);
                 formData.question_about = question.value;
             } else if (comment.checked) {
                 formData.question_about = comment.value;
@@ -157,18 +163,11 @@ window.onload = function() {
                 formData.hourRate = hourlyinput.value;
             }
 
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log(xhr.responseText);
-                }
-            }
-            xhr.open("POST", url);
-            xhr.send(JSON.stringify(formData));
-            console.log(formData.question_about);
-
+            // display information via window.confirm
             if (window.confirm("Please check your information below.\n" +
                     "First Name: " + fname.value + "\n" +
                     "Last Name: " + lname.value + "\n" +
+                    "Phone: " + phone.value + "\n" +
                     "Email: " + email.value + "\n" +
                     "Address: " + address.value + "\n" +
                     "City: " + city.value + "\n" +
@@ -176,9 +175,10 @@ window.onload = function() {
                     "Question About: " + formData.question_about + "\n" +
                     "Other: " + other.value + "\n")) window.confirm("Submit successfully! Thank you for your feedback!");
 
-
+            // clear input data
             fname.value = "";
             lname.value = "";
+            phone.value = "";
             email.value = "";
             address.value = "";
             city.value = "";
@@ -187,6 +187,15 @@ window.onload = function() {
             other.value = "";
             if (hourlyinput) hourlyinput.value = "";
         } else alert("Invalid information, Please check again before you submit!");
+
+        // POST TO Server
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.open("POST", url);
+        xhr.send(JSON.stringify(formData));
 
     })
 };

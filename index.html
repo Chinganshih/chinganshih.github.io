@@ -35,7 +35,7 @@
         </div>
     </header>
     <hr>
-    <div class="content" style="visibility:hidden">
+    <div class="content" style="visibility:hidden" hidden>
         <!-- About Me and Academic Honesty Section  -->
         <div class="aboutMe_left" style="background-color:#aaa;">
             <h3>About Me and Academic Honesty</h3>
@@ -47,6 +47,8 @@
             <h3>Basic Information</h3>
             <ul class="fa-ul">
                 <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Name: </b> Ching-An, Shih</li>
+                <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>ID: </b> 148221195</li>
+                <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Email: </b> cshih9@myseneca.ca</li>
                 <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Course: </b> WEB222</li>
                 <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Section: </b> NII</li>
                 <li><i class="fa-li fa fa-spinner fa-spin"></i> <b>Professor: </b> Mark Meritt</li>
@@ -91,10 +93,14 @@
             </div>
             <div class="contact_middle" style="background-color:#bbb; ">
                 <form id="contactform">
+                    <!-- Name -->
                     <label for="fname">First name (required):</label>
                     <input type="text" id="fname" name="fname" required>
                     <label for="lname">Last name (required):</label>
                     <input type="text" id="lname" name="lname" required>
+                    <!-- Phone -->
+                    <label for="phone">Phone (required):</label>
+                    <input type="text" id="phone" name="phone" required>
                     <!-- Email -->
                     <label for="email">Email (required):</label>
                     <input type="email" id="email" name="email" placeholder="123@example.com" pattern=".+@globex\.com" required>
