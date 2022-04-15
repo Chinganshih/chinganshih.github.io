@@ -166,16 +166,15 @@ window.onload = function() {
             xhr.send(JSON.stringify(formData));
             console.log(formData.question_about);
 
-            window.confirm("Please check your information below.\n" +
-                "First Name: " + fname.value + "\n" +
-                "Last Name: " + lname.value + "\n" +
-                "Email: " + email.value + "\n" +
-                "Address: " + address.value + "\n" +
-                "City: " + city.value + "\n" +
-                "Postal Code: " + postalcode.value + "\n" +
-                "Question About: " + formData.question_about + "\n" +
-                "Other: " + other.value + "\n" +
-                "Submit successfully! Thank you for your feedback!");
+            if (window.confirm("Please check your information below.\n" +
+                    "First Name: " + fname.value + "\n" +
+                    "Last Name: " + lname.value + "\n" +
+                    "Email: " + email.value + "\n" +
+                    "Address: " + address.value + "\n" +
+                    "City: " + city.value + "\n" +
+                    "Postal Code: " + postalcode.value + "\n" +
+                    "Question About: " + formData.question_about + "\n" +
+                    "Other: " + other.value + "\n")) window.confirm("Submit successfully! Thank you for your feedback!");
 
 
             fname.value = "";
