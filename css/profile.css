@@ -6,16 +6,18 @@ html {
 header {
     margin: 10em;
     color: #000000;
+    height: 100%;
 }
 
 body {
     font-size: 1.8rem;
     line-height: 1.618;
-    max-width: 80em;
-    margin: auto;
+    max-width: fit-content;
+    margin: 5em;
     color: #000000;
     background-color: #225369;
     padding: 13px;
+    position: absolute;
 }
 
 @media (max-width: 1500px) {
@@ -167,10 +169,10 @@ blockquote p {
 
 img,
 video {
-    height: auto;
-    max-width: 100%;
-    margin-top: 40px;
-    margin-bottom: 2rem;
+    height: 100%;
+    max-width: -webkit-fill-available;
+    margin-top: 0px;
+    margin-bottom: 0;
 }
 
 
