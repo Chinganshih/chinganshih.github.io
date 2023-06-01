@@ -189,7 +189,7 @@ html {
 }
 
 body {
-    background-color: #dd7027;
+    background-color: #f5ebe4;
 }
 
 body.is-preload *,
@@ -2985,7 +2985,7 @@ table.alt tbody tr td {
     width: 100%;
     height: 100%;
     background-color: #e8cd83;
-    background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(217, 92, 38, 0.1), rgba(219, 131, 69, 0.1)), url("../../images/background.png");
+    background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(217, 92, 38, 0.1), rgba(219, 131, 69, 0.1)), url("../../images/background.jpg");
     background-size: auto, auto, 100% auto;
     background-position: center, center, top center;
     background-repeat: repeat, no-repeat, no-repeat;
@@ -3009,7 +3009,7 @@ table.alt tbody tr td {
     -webkit-transition-delay: 0.75s;
     -ms-transition-delay: 0.75s;
     transition-delay: 0.75s;
-    background: #dd7027;
+    background: #b5d2ec;
     content: '';
     display: block;
     height: 100%;
@@ -3034,7 +3034,7 @@ body.is-preload #wrapper.fade-in:before {
 /* Intro */
 
 #intro {
-    color: #ffffff;
+    color: #211515;
     padding: 8rem 4rem 6rem 4rem;
     -moz-align-items: center;
     -webkit-align-items: center;
@@ -3066,22 +3066,22 @@ body.is-preload #wrapper.fade-in:before {
 #intro input,
 #intro select,
 #intro textarea {
-    color: #ffffff;
+    color: #211515;
 }
 
 #intro a {
-    color: #ffffff;
+    color: #211515;
     border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
 #intro a:hover {
     border-bottom-color: transparent;
-    color: #18bfef !important;
+    color: #211515 !important;
 }
 
 #intro strong,
 #intro b {
-    color: #ffffff;
+    color: #211515;
 }
 
 #intro h1,
@@ -3090,20 +3090,20 @@ body.is-preload #wrapper.fade-in:before {
 #intro h4,
 #intro h5,
 #intro h6 {
-    color: #ffffff;
+    color: #211515;
 }
 
 #intro blockquote {
-    border-left-color: #ffffff;
+    border-left-color: #211515;
 }
 
 #intro code {
     background: rgba(255, 255, 255, 0.075);
-    border-color: #ffffff;
+    border-color: #211515;
 }
 
 #intro hr {
-    border-bottom-color: #ffffff;
+    border-bottom-color: #211515;
 }
 
 #intro input[type="submit"],
@@ -3113,7 +3113,7 @@ body.is-preload #wrapper.fade-in:before {
 #intro .button {
     background-color: transparent;
     box-shadow: inset 0 0 0 2px #ffffff;
-    color: #ffffff !important;
+    color: #605443 !important;
 }
 
 #intro input[type="submit"]:hover,
@@ -3121,8 +3121,8 @@ body.is-preload #wrapper.fade-in:before {
 #intro input[type="button"]:hover,
 #intro button:hover,
 #intro .button:hover {
-    box-shadow: inset 0 0 0 2px #18bfef;
-    color: #18bfef !important;
+    box-shadow: inset 0 0 0 2px #ffffff;
+    color: #605443 !important;
 }
 
 #intro input[type="submit"].primary,
@@ -3132,7 +3132,7 @@ body.is-preload #wrapper.fade-in:before {
 #intro .button.primary {
     background-color: #ffffff;
     box-shadow: none;
-    color: #1e252d !important;
+    color: #605443 !important;
 }
 
 #intro input[type="submit"].primary:hover,
@@ -3140,7 +3140,7 @@ body.is-preload #wrapper.fade-in:before {
 #intro input[type="button"].primary:hover,
 #intro button.primary:hover,
 #intro .button.primary:hover {
-    background-color: #18bfef;
+    background-color: #605443;
 }
 
 #intro h1 {
@@ -3243,7 +3243,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 /* Header */
 
 #header {
-    color: #ffffff;
+    color: #605443;
     -moz-align-items: center;
     -webkit-align-items: center;
     -ms-align-items: center;
@@ -3285,7 +3285,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 
 #header a:hover {
     border-bottom-color: transparent;
-    color: #18bfef !important;
+    color: #605443 !important;
 }
 
 #header strong,
@@ -4115,7 +4115,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #copyright {
-    color: #ffffff;
+    color: #473f3f;
     position: relative;
     color: rgba(255, 255, 255, 0.25);
     cursor: default;
@@ -4135,11 +4135,11 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 #copyright input,
 #copyright select,
 #copyright textarea {
-    color: #ffffff;
+    color: #3a3636;
 }
 
 #copyright a {
-    color: #ffffff;
+    color: #3a3636;
     border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -4159,20 +4159,20 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 #copyright h4,
 #copyright h5,
 #copyright h6 {
-    color: #ffffff;
+    color: #3a3636;
 }
 
 #copyright blockquote {
-    border-left-color: #ffffff;
+    border-left-color: #3a3636;
 }
 
 #copyright code {
     background: rgba(255, 255, 255, 0.075);
-    border-color: #ffffff;
+    border-color: #3a3636;
 }
 
 #copyright hr {
-    border-bottom-color: #ffffff;
+    border-bottom-color: #3a3636;
 }
 
 #copyright a {
